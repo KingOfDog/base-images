@@ -23,6 +23,7 @@ RUN ./configure-apt.sh && \
         libgsf-1-dev \
         # libjpeg62-turbo-dev is just for building libvips; the final image uses jpegli (/usr/local/lib/libjpeg.so.62) built alongside libjxl
         libjpeg62-turbo-dev \
+        libjxl-dev \
         liblcms2-2 \
         librsvg2-dev \
         libspng-dev \
@@ -44,7 +45,7 @@ RUN ./configure-apt.sh && \
         libio-compress-brotli-perl
 
 COPY bin/* ./
-
+RUN ./build-dngsdk.sh
 RUN ./build-libjxl.sh
 RUN ./build-libheif.sh
 RUN ./build-libraw.sh

@@ -7,6 +7,7 @@ set -e
 git clone https://github.com/libraw/libraw.git
 cd libraw
 git reset --hard "$LIBRAW_REVISION"
+git apply ../configure.ac.patch
 
 autoreconf --install
 ./configure
